@@ -1,0 +1,42 @@
+name: Deploy Qiaopi Exhibition to Pages
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download V3 exhibition package
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/site"
+          gh release download v3 --repo "$GITHUB_REPOSITORY" --pattern 'qiaopi_exhibition_330_V3_20261103.zip' --dir "$RUNNER_TEMP"
+          unzip -q "$RUNNER_TEMP/qiaopi_exhibition_330_V3_20261103.zip" -d "$RUNNER_TEMP/site"
+          test -s "$RUNNER_TEMP/site/index.html"
+          test -s "$RUNNER_TEMP/site/browse.html"
+          test -s "$RUNNER_TEMP/site/archive/catalog.json"
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
