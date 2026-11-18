@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>浏览侨批 | Qiaopi Digital Archive</title>
+  <meta name="description" content="浏览侨批、家书与历史影像。">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="gallery.css?v=6">
+  <script defer src="data.js?v=6"></script><script defer src="archive/catalog.js?v=7"></script><script defer src="map-data.js?v=6"></script><script defer src="atlas.js?v=6"></script><script defer src="script.js?v=6"></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳至正文</a>
+  <header class="site-header" id="header">
+    <a class="brand" href="#home" aria-label="侨批首页"><span class="seal">侨<br>批</span><span class="brand-text">侨批<span>QIAOPI DIGITAL ARCHIVE</span></span></a>
+    <nav aria-label="主导航"><a href="#home" data-nav="home">首页</a><a href="#collection" data-nav="collection">浏览侨批</a><a href="#exhibitions" data-nav="exhibitions">线上展览</a><a href="#routes" data-nav="routes">山海邮路</a></nav>
+    <div class="header-actions"><a class="mobile-browse-link" href="#collection">浏览侨批</a><button class="icon-button" id="searchToggle" aria-label="搜索藏品"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button><a class="icon-button" href="#saved" aria-label="我的收藏"><svg viewBox="0 0 24 24"><path d="M12 21S2 15 2 8a5 5 0 0 1 10-1A5 5 0 0 1 22 8c0 7-10 13-10 13Z"/></svg><span class="save-dot" hidden></span></a><button class="menu-button" id="menuToggle" aria-label="展开导航" aria-expanded="false">☰</button></div>
+  </header>
+  <div id="searchPanel" class="search-panel" hidden><label for="globalSearch">在侨批里寻找一段故事</label><form id="searchForm"><input id="globalSearch" type="search" placeholder="搜索人物、地点或主题，如：黄清池、持家" autocomplete="off"><button type="submit">搜索 →</button><button type="button" id="closeSearch" aria-label="关闭搜索">✕</button></form></div>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer"><a class="footer-brand" href="#home">侨批档案 · 跨海银信数字展</a><p>海外华侨家书与汇款史料库</p><div><button id="aboutButton">关于侨批 ↗</button><a href="#collection">浏览侨批</a><a href="#exhibitions">线上展览</a><a href="#routes">山海邮路</a></div></footer>
+  <dialog id="recordDialog" class="record-dialog" aria-labelledby="recordTitle"><button class="dialog-close" data-close="recordDialog" aria-label="关闭藏品详情">✕</button><div id="recordContent"></div></dialog>
+  <dialog id="imageDialog" class="image-dialog" aria-label="原件影像查看器"><div class="viewer-bar"><span id="viewerLabel">原件影像</span><div><button id="zoomOut" aria-label="缩小">−</button><output id="zoomLevel">100%</output><button id="zoomIn" aria-label="放大">＋</button><button id="rotateImage" aria-label="旋转图像">↻</button><button id="resetImage">复位</button><button data-close="imageDialog" aria-label="关闭影像">✕</button></div></div><div id="imageStage"><img id="viewerImage" alt="侨批影像"></div><p class="viewer-tip">滚轮缩放 · 拖动平移 · Esc 返回</p></dialog>
+  <dialog id="aboutDialog" class="about-dialog" aria-labelledby="aboutTitle"><button class="dialog-close" data-close="aboutDialog" aria-label="关闭关于">✕</button><p class="eyebrow">ABOUT QIAOPI</p><h2 id="aboutTitle">银信合一，跨海家书</h2><p>侨批，又称“番批”“银信”，是近代海外华侨通过民间渠道寄回原籍家乡的汇款凭证与家书合一的特殊文献，主要分布于广东潮汕、五邑、梅州及福建泉漳、福州等传统侨乡。</p><p>从批封上的商号戳记、水客批单，到信纸上的家常絮语与柴米账目，侨批真实记录了晚清至民国时期海外谋生者与故乡亲眷的生计互动。</p><h3>档案查阅指南</h3><p>本网站提供侨批原件高清影像、逐字转写及现代白话释文对照，支持按人物、主题及南洋—侨乡邮路多维检索。</p><a href="#collection">查阅侨批档案 →</a></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body></html>
+
+
